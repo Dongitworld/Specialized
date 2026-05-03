@@ -7,7 +7,7 @@
 <label><input type="checkbox" onclick="toggleTrait('Overthinker')"> Overthinker 🤯</label>
 <label><input type="checkbox" onclick="toggleTrait('Late night talks')"> Late night talks 🌙</label>
 
-<input placeholder="type your answer here..." oninput="saveAnswer(this.value)">
+<input oninput="saveAnswer(this.value)" placeholder="type your answer here...">
 <button onclick="msg()">Submit</button>
 
 <p id="res"></p>
@@ -19,7 +19,6 @@
 <button class="back" onclick="history.back()">←</button>
 
 <script src="data.js"></script>
-
 <script>
 function msg(){
  document.getElementById("res").innerText="hmm… interesting answer 👀";

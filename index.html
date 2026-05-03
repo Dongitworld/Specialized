@@ -3,6 +3,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
 </head>
 
 <body class="center">
@@ -21,16 +22,15 @@
 
 <script>
 function checkName(){
- let name = document.getElementById("nameInput").value;
+ let name=document.getElementById("nameInput").value;
  saveName(name);
 
  if(name.toLowerCase()==="khushi"){
-   document.getElementById("msg").innerText =
+   document.getElementById("msg").innerText=
    "Ooh it's actually you welcome to my little website created for you";
-
    setTimeout(()=>location.href="home.html",1500);
  } else {
-   document.getElementById("msg").innerText =
+   document.getElementById("msg").innerText=
    "hmm… this place might not be for you 👀";
  }
 }

@@ -9,13 +9,26 @@
 <body class="center">
 <div class="card">
 
-<p>okay you came this far… do you actually know me a little?</p>
+<p>Okay you came this far… do you actually know me a little?</p>
 
 <label><input type="checkbox" onclick="toggleTrait('Funny')"> Funny 😄</label>
 <label><input type="checkbox" onclick="toggleTrait('Overthinker')"> Overthinker 🤯</label>
-<label><input type="checkbox" onclick="toggleTrait('Late night talks')"> Late night talks 🌙</label>
+<label><input type="checkbox" onclick="toggleTrait('Enjoys late night talks')"> Enjoys late night talks 🌙</label>
+<label><input type="checkbox" onclick="toggleTrait('Watches reels for too long')"> Watches reels for too long 📱</label>
+<label><input type="checkbox" onclick="toggleTrait('Gets bored easily')"> Gets bored easily 😴</label>
+<label><input type="checkbox" onclick="toggleTrait('Overthinks sometimes')"> Overthinks sometimes 🤯</label>
+<label><input type="checkbox" onclick="toggleTrait('Laughs at random things')"> Laughs at random things 😂</label>
+<label><input type="checkbox" onclick="toggleTrait('Low tempered')"> Low tempered 😌</label>
+<label><input type="checkbox" onclick="toggleTrait('Funny')"> Funny 😄</label>
+<label><input type="checkbox" onclick="toggleTrait('Daydreams a lot')"> Daydreams a lot ☁️</label>
+<label><input type="checkbox" onclick="toggleTrait('Enjoys small talks')"> Enjoys small talks ☕</label>
+<label><input type="checkbox" onclick="toggleTrait('Gets excited over little things ✨')"> Gets excited over little things ✨</label>
+<label><input type="checkbox" onclick="toggleTrait('Listens more than talks')"> Listens more than talks 🎧</label>
+<label><input type="checkbox" onclick="toggleTrait('Has a calm vibe')"> Has a calm vibe 🌊</label>
+<label><input type="checkbox" onclick="toggleTrait('Slightly sarcastic sometimes')"> Slightly sarcastic sometimes 😏</label>
+<label><input type="checkbox" onclick="toggleTrait('Takes time to open up')"> Takes time to open up 🌼</label>
 
-<input oninput="saveAnswer(this.value)" placeholder="type your answer here...">
+<input oninput="saveAnswer(this.value)" placeholder="From how much you know , Can you tell me one thing that I like the most ?">
 <button onclick="msg()">Submit</button>
 
 <p id="res"></p>
@@ -24,7 +37,7 @@
 
 </div>
 
-<button class="back" onclick="history.back()">←</button>
+<button class="back" onclick="history.back()">Go back to previous page</button>
 
 <script src="data.js"></script>
 <script>

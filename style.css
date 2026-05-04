@@ -54,8 +54,15 @@ input, textarea {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+/* Make 3rd image centered */
+.grid img:nth-child(3) {
+  grid-column: 1 / span 2;
+  justify-self: center;
+  width: 70%;
 }
 
 img {

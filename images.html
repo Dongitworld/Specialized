@@ -22,29 +22,5 @@
 <button class="back" onclick="history.back()">Go back to previous page</button>
 
 <script src="data.js"></script>
-
-<script>
-function openImg(src){
-  let viewer = document.createElement("div");
-  viewer.style.position = "fixed";
-  viewer.style.top = 0;
-  viewer.style.left = 0;
-  viewer.style.width = "100%";
-  viewer.style.height = "100%";
-  viewer.style.background = "rgba(0,0,0,0.8)";
-  viewer.style.display = "flex";
-  viewer.style.alignItems = "center";
-  viewer.style.justifyContent = "center";
-  viewer.style.zIndex = 999;
-
-  viewer.innerHTML = `
-    <img src="${src}" style="max-width:90%; border-radius:20px;">
-  `;
-
-  viewer.onclick = () => document.body.removeChild(viewer);
-
-  document.body.appendChild(viewer);
-}
-</script>
 </body>
 </html>

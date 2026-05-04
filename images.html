@@ -17,8 +17,8 @@
   aspect-ratio: 1/1;
   object-fit: cover;
   border-radius: 15px;
-  transition: all 0.35s ease;
   cursor: pointer;
+  transition: all 0.35s ease;
 }
 
 /* center 3rd image */
@@ -28,10 +28,42 @@
   width: 70%;
 }
 
-/* hover */
+/* hover effect */
 .grid img:hover {
   transform: scale(1.08);
   box-shadow: 0 10px 25px rgba(255, 120, 150, 0.4);
+}
+
+/* viewer styles */
+.img-viewer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.img-viewer.show {
+  background: rgba(0,0,0,0.85);
+  opacity: 1;
+}
+
+.img-popup {
+  max-width: 85%;
+  border-radius: 20px;
+  transform: scale(0.8);
+  transition: all 0.3s ease;
+}
+
+.img-viewer.show .img-popup {
+  transform: scale(1);
 }
 </style>
 
@@ -57,22 +89,18 @@
 <script>
 function openImg(src){
   let viewer = document.createElement("div");
-  viewer.style.position = "fixed";
-  viewer.style.top = 0;
-  viewer.style.left = 0;
-  viewer.style.width = "100%";
-  viewer.style.height = "100%";
-  viewer.style.background = "rgba(0,0,0,0.85)";
-  viewer.style.display = "flex";
-  viewer.style.alignItems = "center";
-  viewer.style.justifyContent = "center";
-  viewer.style.zIndex = 999;
+  viewer.className = "img-viewer";
 
-  viewer.innerHTML = `<img src="${src}" style="max-width:90%; border-radius:20px;">`;
+  viewer.innerHTML = `<img src="${src}" class="img-popup">`;
 
-  viewer.onclick = () => document.body.removeChild(viewer);
+  viewer.onclick = () => {
+    viewer.classList.remove("show");
+    setTimeout(() => document.body.removeChild(viewer), 300);
+  };
 
   document.body.appendChild(viewer);
+
+  setTimeout(() => viewer.classList.add("show"), 10);
 }
 </script>
 

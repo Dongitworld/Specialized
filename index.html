@@ -22,19 +22,22 @@
 
 <script>
 function checkName(){
- let name=document.getElementById("nameInput").value;
+ let name = document.getElementById("nameInput").value
+              .toLowerCase()
+              .trim();   // 🔥 THIS IS THE IMPORTANT PART
+
  saveName(name);
 
- if(name.toLowerCase()==="khushi"){
-   document.getElementById("msg").innerText=
+ if(name === "khushi"){
+   document.getElementById("msg").innerText =
    "Ooh it's actually you welcome to my little website created for you";
+
    setTimeout(()=>location.href="home.html",1500);
  } else {
-   document.getElementById("msg").innerText=
+   document.getElementById("msg").innerText =
    "hmm… this place might not be for you 👀";
  }
 }
- 
 </script>
 
 </body>

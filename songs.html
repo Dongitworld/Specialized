@@ -11,6 +11,8 @@ body{
   background: linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);
   color:white;
   font-family:Poppins;
+  overflow-y:auto;
+  touch-action:pan-y;
 }
 
 .song-container{
@@ -91,6 +93,7 @@ body{
   line-height:1.8;
   padding-right:6px;
   scrollbar-width:none;
+  -webkit-overflow-scrolling: touch;
 }
 
 .lyrics::-webkit-scrollbar{

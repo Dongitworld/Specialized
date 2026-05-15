@@ -84,23 +84,31 @@ body{
 
 .lyrics{
   margin-top:15px;
-  max-height:120px;
+  height:140px;
   overflow-y:auto;
+  overflow-x:hidden;
   scroll-behavior:smooth;
   line-height:1.8;
+  padding-right:6px;
+  scrollbar-width:none;
+}
+
+.lyrics::-webkit-scrollbar{
+  display:none;
 }
 
 .lyrics p{
-  opacity:0.4;
-  transition:0.3s ease;
-  margin:10px 0;
+  opacity:0.35;
+  transition:0.35s ease;
+  margin:14px 0;
+  transform:translateY(0);
 }
 
 .lyrics p.active{
   opacity:1;
-  transform:scale(1.03);
-  color:#ffffff;
+  color:#fff;
   font-weight:600;
+  transform:scale(1.02);
 }
 
 .back{
@@ -256,19 +264,23 @@ function syncLyrics(audio,index){
 
     let current = audio.currentTime;
 
-    lines.forEach((line)=>{
+    lines.forEach((line,i)=>{
 
       let time = parseFloat(line.dataset.time);
 
-      if(current >= time){
+      let nextTime = lines[i+1]
+      ? parseFloat(lines[i+1].dataset.time)
+      : 9999;
+
+      if(current >= time && current < nextTime){
 
         lines.forEach(l=>l.classList.remove("active"));
 
         line.classList.add("active");
 
-        line.scrollIntoView({
-          behavior:"smooth",
-          block:"center"
+        lyricBoxes[index].scrollTo({
+          top: line.offsetTop - 50,
+          behavior:"smooth"
         });
       }
     });

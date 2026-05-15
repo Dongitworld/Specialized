@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+body{
+  background:linear-gradient(135deg,#111827,#0f172a,#1e3a8a);
+  font-family:Poppins;
+  color:white;
+  margin:0;
+  overflow-y:auto;
+}
+
+.song-container{
+  display:flex;
+  flex-direction:column;
+  gap:22px;
+  padding:20px;
+  padding-bottom:120px;
+}
+
+.song-card{
+  position:relative;
+  overflow:hidden;
+  border-radius:28px;
+  padding:22px;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.12);
+  backdrop-filter:blur(18px);
+  box-shadow:0 10px 35px rgba(0,0,0,0.35);
+  transition:0.4s ease;
+}
+
+.song-card:hover{
+  transform:translateY(-5px) scale(1.01);
+}
+
+.song-card::before{
+  content:"";
+  position:absolute;
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  background:rgba(255,255,255,0.06);
+  top:-70px;
+  right:-70px;
+}
+
+.song-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.song-title{
+  font-size:20px;
+  font-weight:600;
+}
+
+.artist{
+  opacity:0.7;
+  font-size:13px;
+  margin-top:4px;
+}
+
+.play-btn{
+  width:58px;
+  height:58px;
+  border:none;
+  border-radius:50%;
+  background:rgba(255,255,255,0.12);
+  color:white;
+  font-size:21px;
+  cursor:pointer;
+  transition:0.35s ease;
+  backdrop-filter:blur(12px);
+}
+
+.play-btn:hover{
+  transform:scale(1.1);
+  background:rgba(255,255,255,0.2);
+}
+
+.controls{
+  margin-top:24px;
+}
+
+.progress{
+  width:100%;
+  height:6px;
+  appearance:none;
+  border-radius:20px;
+  background:rgba(255,255,255,0.18);
+  outline:none;
+  cursor:pointer;
+}
+
+.progress::-webkit-slider-thumb{
+  appearance:none;
+  width:17px;
+  height:17px;
+  border-radius:50%;
+  background:white;
+  cursor:pointer;
+}
+
+.time{
+  margin-top:10px;
+  display:flex;
+  justify-content:space-between;
+  font-size:12px;
+  opacity:0.8;
+}
+
+.back{
+  position:fixed;
+  bottom:22px;
+  right:22px;
+  padding:14px 22px;
+  border:none;
+  border-radius:24px;
+  background:rgba(255,255,255,0.15);
+  backdrop-filter:blur(10px);
+  color:white;
+  font-family:Poppins;
+  cursor:pointer;
+  transition:0.3s ease;
+}
+
+.back:hover{
+  transform:scale(1.05);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="song-container">
+
+<div class="song-card">
+
+  <div class="song-top">
+
+    <div>
+      <div class="song-title">Dreamy Night</div>
+      <div class="artist">Test Song 1</div>
+    </div>
+
+    <button class="play-btn" onclick="toggleSong(0,this)">
+      <i class="fa-solid fa-play"></i>
+    </button>
+
+  </div>
+
+  <div class="controls">
+
+    <input
+      type="range"
+      value="0"
+      class="progress"
+      onchange="setProgress(this,0)"
+    >
+
+    <div class="time">
+      <span id="current0">0:00</span>
+      <span id="duration0">0:00</span>
+    </div>
+
+  </div>
+
+  <audio src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+
+</div>
+
+
+<div class="song-card">
+
+  <div class="song-top">
+
+    <div>
+      <div class="song-title">Moonlight Talks</div>
+      <div class="artist">Test Song 2</div>
+    </div>
+
+    <button class="play-btn" onclick="toggleSong(1,this)">
+      <i class="fa-solid fa-play"></i>
+    </button>
+
+  </div>
+
+  <div class="controls">
+
+    <input
+      type="range"
+      value="0"
+      class="progress"
+      onchange="setProgress(this,1)"
+    >
+
+    <div class="time">
+      <span id="current1">0:00</span>
+      <span id="duration1">0:00</span>
+    </div>
+
+  </div>
+
+  <audio src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"></audio>
+
+</div>
+
+
+<div class="song-card">
+
+  <div class="song-top">
+
+    <div>
+      <div class="song-title">Late Night Vibes</div>
+      <div class="artist">Test Song 3</div>
+    </div>
+
+    <button class="play-btn" onclick="toggleSong(2,this)">
+      <i class="fa-solid fa-play"></i>
+    </button>
+
+  </div>
+
+  <div class="controls">
+
+    <input
+      type="range"
+      value="0"
+      class="progress"
+      onchange="setProgress(this,2)"
+    >
+
+    <div class="time">
+      <span id="current2">0:00</span>
+      <span id="duration2">0:00</span>
+    </div>
+
+  </div>
+
+  <audio src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"></audio>
+
+</div>
+
+
+<div class="song-card">
+
+  <div class="song-top">
+
+    <div>
+      <div class="song-title">Soft Chaos</div>
+      <div class="artist">Test Song 4</div>
+    </div>
+
+    <button class="play-btn" onclick="toggleSong(3,this)">
+      <i class="fa-solid fa-play"></i>
+    </button>
+
+  </div>
+
+  <div class="controls">
+
+    <input
+      type="range"
+      value="0"
+      class="progress"
+      onchange="setProgress(this,3)"
+    >
+
+    <div class="time">
+      <span id="current3">0:00</span>
+      <span id="duration3">0:00</span>
+    </div>
+
+  </div>
+
+  <audio src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3"></audio>
+
+</div>
+
+</div>
+
+<button class="back" onclick="history.back()">
+Go Back
+</button>
+
+<script>
+
+const audios = document.querySelectorAll("audio");
+const buttons = document.querySelectorAll(".play-btn");
+const progressBars = document.querySelectorAll(".progress");
+
+function toggleSong(index,btn){
+
+  audios.forEach((audio,i)=>{
+
+    if(i !== index){
+
+      audio.pause();
+      audio.currentTime = 0;
+
+      buttons[i].innerHTML =
+      '<i class="fa-solid fa-play"></i>';
+    }
+
+  });
+
+  const audio = audios[index];
+
+  if(audio.paused){
+
+    audio.play();
+
+    btn.innerHTML =
+    '<i class="fa-solid fa-pause"></i>';
+
+  }else{
+
+    audio.pause();
+
+    btn.innerHTML =
+    '<i class="fa-solid fa-play"></i>';
+  }
+}
+
+audios.forEach((audio,index)=>{
+
+  audio.addEventListener("loadedmetadata",()=>{
+
+    document.getElementById(
+      "duration"+index
+    ).innerText = formatTime(audio.duration);
+
+  });
+
+  audio.addEventListener("timeupdate",()=>{
+
+    progressBars[index].max = audio.duration;
+
+    progressBars[index].value = audio.currentTime;
+
+    document.getElementById(
+      "current"+index
+    ).innerText = formatTime(audio.currentTime);
+
+  });
+
+});
+
+function setProgress(range,index){
+
+  audios[index].currentTime = range.value;
+}
+
+function formatTime(time){
+
+  let mins = Math.floor(time / 60);
+  let secs = Math.floor(time % 60);
+
+  if(secs < 10){
+    secs = "0" + secs;
+  }
+
+  return mins + ":" + secs;
+}
+
+</script>
+
+</body>
+</html>
